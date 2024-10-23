@@ -5,3 +5,4 @@ bintray.properties
 .DS_Store
 /build
 *.iml
+gradle
