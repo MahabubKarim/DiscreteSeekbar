@@ -20,11 +20,12 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import org.adw.library.widgets.discreteseekbar.internal.drawable.AlmostRippleDrawable;
 import org.adw.library.widgets.discreteseekbar.internal.drawable.MarkerDrawable;
@@ -45,9 +46,7 @@ public class SeekBarCompat {
      * @param markerDrawable
      */
     public static void setOutlineProvider(View view, final MarkerDrawable markerDrawable) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            SeekBarCompatDontCrash.setOutlineProvider(view, markerDrawable);
-        }
+        SeekBarCompatDontCrash.setOutlineProvider(view, markerDrawable);
     }
 
     /**
@@ -58,11 +57,7 @@ public class SeekBarCompat {
      * @return
      */
     public static Drawable getRipple(ColorStateList colorStateList) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return SeekBarCompatDontCrash.getRipple(colorStateList);
-        } else {
-            return new AlmostRippleDrawable(colorStateList);
-        }
+        return SeekBarCompatDontCrash.getRipple(colorStateList);
     }
 
     /**
@@ -71,11 +66,7 @@ public class SeekBarCompat {
      * @param colorStateList The ColorStateList the track ripple will be changed to
      */
     public static void setRippleColor(@NonNull Drawable drawable, ColorStateList colorStateList) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ((RippleDrawable) drawable).setColor(colorStateList);
-        } else {
-            ((AlmostRippleDrawable) drawable).setColor(colorStateList);
-        }
+        ((RippleDrawable) drawable).setColor(colorStateList);
     }
 
     /**
@@ -89,13 +80,9 @@ public class SeekBarCompat {
      * @param bottom
      */
     public static void setHotspotBounds(Drawable drawable, int left, int top, int right, int bottom) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //We don't want the full size rect, Lollipop ripple would be too big
-            int size = (right - left) / 8;
-            DrawableCompat.setHotspotBounds(drawable, left + size, top + size, right - size, bottom - size);
-        } else {
-            drawable.setBounds(left, top, right, bottom);
-        }
+        //We don't want the full size rect, Lollipop ripple would be too big
+        int size = (right - left) / 8;
+        DrawableCompat.setHotspotBounds(drawable, left + size, top + size, right - size, bottom - size);
     }
 
     /**
