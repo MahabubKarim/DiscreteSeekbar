@@ -21,7 +21,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -206,4 +205,5 @@ public class Marker extends ViewGroup implements MarkerDrawable.MarkerAnimationL
     public void setColors(int startColor, int endColor) {
         mMarkerDrawable.setColors(startColor, endColor);
     }
+
 }
