@@ -1,1 +1,1 @@
-![Demo Image](https://github.com/MahabubKarim/DiscreteSeekbar/blob/master/demo.jpg)
+![Demo Image](https://github.com/MahabubKarim/DiscreteSeekbar/blob/master/DiscreteSeekBar.jpg)
